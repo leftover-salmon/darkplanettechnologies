@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" role="img" aria-label="Dark Planet Technologies"><title>Dark Planet Technologies</title><defs>
+    <filter id="widet" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.11" numOctaves="5" seed="23" result="n"/>
+      <feDiffuseLighting in="n" surfaceScale="4" diffuseConstant="1.45" lighting-color="#e6e4df">
+        <feDistantLight azimuth="275" elevation="28"/>
+      </feDiffuseLighting>
+    </filter>
+    <radialGradient id="wided" cx="170" cy="300" r="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#060607"/><stop offset="0.8889" stop-color="#060607"/>
+      <stop offset="0.9556" stop-color="#060607" stop-opacity="0.45"/>
+      <stop offset="0.9922" stop-color="#060607" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#060607" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="widef" x1="0" y1="0" x2="300" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#060607" stop-opacity="0.72"/><stop offset="0.62" stop-color="#060607" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="wideg" cx="170" cy="300" r="288" gradientUnits="userSpaceOnUse">
+      <stop offset="0.9375" stop-color="#d6d4cf" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#d6d4cf" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="wideb"><feGaussianBlur stdDeviation="0.25"/></filter>
+    <clipPath id="widec"><circle cx="170" cy="300" r="270"/></clipPath>
+  </defs>
+  <rect width="300" height="100" fill="#060607"/>
+  <circle cx="170" cy="300" r="288" fill="url(#wideg)"/>
+  <g filter="url(#wideb)"><circle cx="170" cy="300" r="270.9" fill="none" stroke="#d6d4cf" stroke-width="0.4" stroke-opacity="0.42"/><circle cx="170" cy="300" r="272" fill="none" stroke="#d6d4cf" stroke-width="0.4" stroke-opacity="0.3"/><circle cx="170" cy="300" r="273.4" fill="none" stroke="#d6d4cf" stroke-width="0.4" stroke-opacity="0.24"/><circle cx="170" cy="300" r="275.2" fill="none" stroke="#d6d4cf" stroke-width="0.4" stroke-opacity="0.17"/><circle cx="170" cy="300" r="277.4" fill="none" stroke="#d6d4cf" stroke-width="0.4" stroke-opacity="0.12"/><circle cx="170" cy="300" r="280.2" fill="none" stroke="#d6d4cf" stroke-width="0.4" stroke-opacity="0.08"/><circle cx="170" cy="300" r="283.6" fill="none" stroke="#d6d4cf" stroke-width="0.4" stroke-opacity="0.05"/></g>
+  <g clip-path="url(#widec)">
+    <rect width="300" height="100" filter="url(#widet)"/>
+    <rect width="300" height="100" fill="url(#wided)"/>
+    <rect width="300" height="100" fill="url(#widef)"/>
+  </g>
+  <circle cx="170" cy="300" r="269.7" fill="none" stroke="#e6e4df" stroke-width="0.6" stroke-opacity="0.6"/></svg>
