@@ -26,20 +26,19 @@
   /* The logo is a night-side scene, so the page lives in it: always dark. */
   :root {
     --space: #060607;
+    --panel: #0d0d0f;
     --light: #e6e4df;
     --muted: #8d8b87;
     --rule: #1f1f22;
+    --edge: #2a2a2e;
   }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; background: var(--space); }
+  html { -webkit-text-size-adjust: 100%; background: var(--space); scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--space);
     color: var(--light);
     font: 18px/1.6 "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
   /* The horizon runs off both sides at every width; past 1600px the image
      stops growing and its own background blends into the page. */
@@ -57,13 +56,12 @@
     -webkit-mask-image: linear-gradient(#000 60%, transparent);
     mask-image: linear-gradient(#000 60%, transparent);
   }
-  main {
-    flex: 1;
-    width: 100%;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 24px 64px;
-  }
+  .wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  /* Narrow sections keep the page's left edge; only their text column is narrower. */
+  .narrow > * { max-width: 680px; }
+  .close .narrow { max-width: 680px; }
+
+  /* Hero */
   .name {
     margin: -96px 0 16px;
     position: relative;
@@ -72,30 +70,77 @@
     font-weight: 600;
     letter-spacing: -0.01em;
   }
-  .line {
-    margin: 0 0 40px;
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    color: var(--muted);
-    max-width: 34em;
+  .line { margin: 0 0 12px; font-size: clamp(1.1rem, 3vw, 1.3rem); max-width: 34em; }
+  .sub { margin: 0 0 32px; color: var(--muted); max-width: 34em; }
+  .button {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 1px solid var(--light);
+    border-radius: 2px;
+    color: var(--space);
+    background: var(--light);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
   }
-  .rule { border: 0; border-top: 1px solid var(--rule); margin: 0 0 28px; }
+  .button:hover { background: transparent; color: var(--light); }
+
+  /* Two ways in */
+  .ways { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 64px 0 0; }
+  .way {
+    display: block;
+    padding: 24px;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: inherit;
+    text-decoration: none;
+  }
+  .way:hover { border-color: var(--edge); }
+  .way h2 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 600; }
+  .way p { margin: 0 0 16px; color: var(--muted); font-size: 0.95rem; }
+  .way span { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* Sections */
+  section { padding: 72px 0 0; }
+  .eyebrow { margin: 0 0 8px; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  section > .wrap > h2 { margin: 0 0 16px; font-size: clamp(1.5rem, 4vw, 1.9rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+  .lede { color: var(--muted); max-width: 36em; margin: 0 0 32px; }
+  .services { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 48px; }
+  .service h3 { margin: 0 0 8px; font-size: 1.1rem; font-weight: 600; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .service p { margin: 0 0 10px; color: var(--muted); font-size: 0.95rem; }
+  .service ul { margin: 0; padding-left: 18px; font-size: 0.95rem; }
+  .service li { margin: 2px 0; }
+  .engagement { padding: 20px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 220px 1fr; gap: 8px 32px; }
+  .engagement h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+  .engagement p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  .reading { margin: 0; padding: 0; list-style: none; }
+  .reading li { padding: 14px 0; border-top: 1px solid var(--rule); }
+  .reading a { font-weight: 600; }
+  .reading p { margin: 4px 0 0; color: var(--muted); font-size: 0.95rem; }
+  .about p { margin: 0 0 16px; max-width: 36em; }
+
+  /* Closing banner */
+  .close { margin: 96px 0 0; padding: 72px 0; border-top: 1px solid var(--rule); background: var(--panel); text-align: center; }
+  .close h2 { margin: 0 0 12px; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 600; letter-spacing: -0.01em; }
+  .close p { margin: 0 auto 28px; color: var(--muted); max-width: 30em; }
+
   dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 24px; }
   dt { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; padding-top: 3px; }
   dd { margin: 0; }
   a { color: var(--light); text-decoration-color: #55534f; text-underline-offset: 3px; }
   a:hover { text-decoration-color: var(--light); }
-  footer {
-    width: 100%;
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 24px;
-    color: var(--muted);
-    font-size: 0.85rem;
-  }
+  .contact { padding: 48px 0 0; }
+  footer { padding: 48px 24px 32px; color: var(--muted); font-size: 0.85rem; }
+
   @media (max-width: 720px) {
     .name { margin-top: -24px; }
+    .ways, .services { grid-template-columns: 1fr; }
+    .engagement { grid-template-columns: 1fr; }
   }
   @media (max-width: 480px) {
+    body { font-size: 17px; }
+    .wrap { padding: 0 16px; }
     dl { grid-template-columns: 1fr; gap: 2px; }
     dd { margin-bottom: 14px; }
   }
@@ -103,10 +148,134 @@
 </head>
 <body>
 <div class="sky"><img class="horizon" src="horizon.svg" width="300" height="100" alt=""></div>
-<main>
+
+<header class="wrap">
   <h1 class="name">Dark Planet Technologies</h1>
   <p class="line">Senior infrastructure leadership, on demand: Cloud Operations, Security, FinOps, and AI Enablement.</p>
-  <hr class="rule">
+  <p class="sub">For the side of your systems nobody looks at, until it is the only thing anyone is looking at.</p>
+  <a class="button" href="#get-in-touch">Start a conversation</a>
+
+  <div class="ways">
+    <a class="way" href="#engagements">
+      <h2>You need an infrastructure leader</h2>
+      <p>Senior leadership for cloud, security and cost, part-time, without hiring for it full-time.</p>
+      <span>Ongoing &rarr;</span>
+    </a>
+    <a class="way" href="#engagements">
+      <h2>You have one problem to look at properly</h2>
+      <p>A cloud bill that keeps growing, a security posture nobody has checked, or a team adopting AI.</p>
+      <span>Fixed scope &rarr;</span>
+    </a>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <p class="eyebrow">What we do</p>
+    <h2>Four areas, one view of the whole system</h2>
+    <p class="lede">They are usually treated as four separate problems owned by four separate people. They are one system, and most of the expensive failures happen where they meet.</p>
+    <div class="services">
+      <div class="service">
+        <h3>Cloud Operations</h3>
+        <p>Infrastructure that is reliable, observable and boring in the best sense.</p>
+        <ul>
+          <li>Architecture and reliability review</li>
+          <li>Monitoring and alerting people trust</li>
+          <li>Infrastructure as code and deployment pipelines</li>
+        </ul>
+      </div>
+      <div class="service">
+        <h3>Security</h3>
+        <p>Controls that keep working after the audit, because the threats keep arriving after the code does.</p>
+        <ul>
+          <li>Security posture assessment</li>
+          <li>Continuous dependency and vulnerability management</li>
+          <li>Access, secrets and least-privilege review</li>
+        </ul>
+      </div>
+      <div class="service">
+        <h3>FinOps</h3>
+        <p>Knowing what you spend, why, and what it buys, including on AI.</p>
+        <ul>
+          <li>Cloud and AI cost review</li>
+          <li>Cost attribution by team, product and feature</li>
+          <li>Spend alerts that fire before the invoice does</li>
+        </ul>
+      </div>
+      <div class="service">
+        <h3>AI Enablement</h3>
+        <p>Putting AI to work in engineering teams, with the guardrails that make it safe to rely on.</p>
+        <ul>
+          <li>AI coding adoption for engineering teams</li>
+          <li>Quality gates for code a person did not type</li>
+          <li>Evaluating and running AI agents in production</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="engagements">
+  <div class="wrap">
+    <p class="eyebrow">How we work</p>
+    <h2>Three ways to engage</h2>
+    <p class="lede">Every engagement starts with a conversation about what you need, and no commitment.</p>
+    <div class="engagement">
+      <h3>Fractional leadership</h3>
+      <p>An experienced infrastructure leader, part-time and ongoing: setting direction, making the calls, and building the team that will carry it on.</p>
+    </div>
+    <div class="engagement">
+      <h3>Fixed-scope review</h3>
+      <p>A defined problem, a defined timeframe and a written set of findings you can act on, whoever does the work afterwards.</p>
+    </div>
+    <div class="engagement">
+      <h3>Short-term support</h3>
+      <p>Senior help for a migration, an incident or a deadline, for as long as it is needed and no longer.</p>
+    </div>
+  </div>
+</section>
+
+<section id="practice">
+  <div class="wrap narrow">
+    <p class="eyebrow">In practice</p>
+    <h2>Built, run and written up</h2>
+    <p class="lede">The best evidence of how we think is the work itself. Marcus is a production AI system that writes and ships much of its own code; these essays describe how it is kept secure, reliable and affordable.</p>
+    <ul class="reading">
+      <li>
+        <a href="https://mikeontechnology.com/the-gate-doesnt-care-whos-typing/?utm_source=darkplanet&amp;utm_medium=referral">The Gate Doesn&rsquo;t Care Who&rsquo;s Typing</a>
+        <p>Quality gates for a codebase where an AI writes most of the changes.</p>
+      </li>
+      <li>
+        <a href="https://mikeontechnology.com/keeping-marcus-code-continuously-secure/?utm_source=darkplanet&amp;utm_medium=referral">Keeping Marcus&rsquo;s Code Continuously Secure</a>
+        <p>Why code that was secure when it merged can stop being secure, and the detective controls that catch it.</p>
+      </li>
+      <li>
+        <a href="https://mikeontechnology.com/an-ai-dreams-of-me/?utm_source=darkplanet&amp;utm_medium=referral">An AI Dreams of Me</a>
+        <p>A long look at memory, judgment and what happens inside an AI system you live with every day.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap narrow">
+    <p class="eyebrow">About</p>
+    <h2>Mike Dosik</h2>
+    <p>Dark Planet Technologies is the practice of Mike Dosik. Mike started his career as a software developer and moved into management and leadership, running technology teams both large and small. Most of what he knows about building software he learned from leading the people who build it.</p>
+    <p>Now that AI has removed typing speed as the constraint, he is doing both again: leading, and building systems like Marcus to find out what actually works.</p>
+    <p><a href="https://mikeontechnology.com/?utm_source=darkplanet&amp;utm_medium=referral">Mike on Technology</a> &middot; <a href="https://www.linkedin.com/in/mikedosik/">LinkedIn</a></p>
+  </div>
+</section>
+
+<div class="close" id="get-in-touch">
+  <div class="wrap narrow">
+    <h2>The dark side, looked after.</h2>
+    <p>Tell us what you are dealing with. If we are not the right fit, we will say so, and point you to someone who is.</p>
+    <a class="button" href="mailto:hello@darkplanettechnologies.com?subject=Getting%20in%20touch">Email hello@darkplanettechnologies.com</a>
+  </div>
+</div>
+
+<div id="contact" class="wrap narrow contact">
   <dl>
     <dt>Contact</dt>
     <dd><a href="mailto:hello@darkplanettechnologies.com">hello@darkplanettechnologies.com</a></dd>
@@ -115,8 +284,8 @@
     <dt>Elsewhere</dt>
     <dd><a href="https://bsky.app/profile/darkplanettechnologies.com">Bluesky</a> · <a href="https://x.com/darkplanettech">X</a></dd>
   </dl>
-</main>
-<footer>© 2026 Dark Planet Technologies LLC · California</footer>
+</div>
+<footer class="wrap narrow">© 2026 Dark Planet Technologies LLC · California</footer>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4e93e12a3b8f4c9c8b35bda490e30665"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
