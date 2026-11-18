@@ -6,14 +6,14 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#060607">
 <title>Dark Planet Technologies</title>
-<meta name="description" content="Senior infrastructure leadership, on demand: Cloud Operations, Security, FinOps, and AI Enablement.">
+<meta name="description" content="Senior infrastructure leadership, on demand: Cloud Operations, Security, FinOps, Incident Response, and AI Enablement.">
 <link rel="canonical" href="https://darkplanettechnologies.com/">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dark Planet Technologies">
-<meta property="og:description" content="Senior infrastructure leadership, on demand: Cloud Operations, Security, FinOps, and AI Enablement.">
+<meta property="og:description" content="Senior infrastructure leadership, on demand: Cloud Operations, Security, FinOps, Incident Response, and AI Enablement.">
 <meta property="og:url" content="https://darkplanettechnologies.com/">
 <meta property="og:image" content="https://darkplanettechnologies.com/og.png">
 <meta property="og:image:width" content="1200">
@@ -110,6 +110,9 @@
   .service h3 { margin: 0 0 8px; font-size: 1.1rem; font-weight: 600; padding-top: 16px; border-top: 1px solid var(--rule); }
   .service p { margin: 0 0 10px; color: var(--muted); font-size: 0.95rem; }
   .service ul { margin: 0; padding-left: 18px; font-size: 0.95rem; }
+  .service.wide { grid-column: 1 / -1; }
+  .service.wide > p, .service.wide ul { max-width: 36em; }
+  .service .aside { margin: 16px 0 0; padding-left: 14px; border-left: 2px solid var(--edge); font-size: 0.9rem; }
   .service li { margin: 2px 0; }
   .engagement { padding: 20px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 220px 1fr; gap: 8px 32px; }
   .engagement h3 { margin: 0; font-size: 1.05rem; font-weight: 600; }
@@ -151,7 +154,7 @@
 
 <header class="wrap">
   <h1 class="name">Dark Planet Technologies</h1>
-  <p class="line">Senior infrastructure leadership, on demand: Cloud Operations, Security, FinOps, and AI Enablement.</p>
+  <p class="line">Senior infrastructure leadership, on demand: Cloud Operations, Security, FinOps, Incident Response, and AI Enablement.</p>
   <p class="sub">For the side of your systems nobody looks at, until it is the only thing anyone is looking at.</p>
   <a class="button" href="#get-in-touch">Start a conversation</a>
 
@@ -172,8 +175,8 @@
 <section id="services">
   <div class="wrap">
     <p class="eyebrow">What we do</p>
-    <h2>Four areas, one view of the whole system</h2>
-    <p class="lede">They are usually treated as four separate problems owned by four separate people. They are one system, and most of the expensive failures happen where they meet.</p>
+    <h2>Five areas, one view of the whole system</h2>
+    <p class="lede">They are usually treated as five separate problems owned by five separate people. They are one system, and most of the expensive failures happen where they meet.</p>
     <div class="services">
       <div class="service">
         <h3>Cloud Operations</h3>
@@ -210,6 +213,16 @@
           <li>Quality gates for code a person did not type</li>
           <li>Evaluating and running AI agents in production</li>
         </ul>
+      </div>
+      <div class="service wide">
+        <h3>Incident Response</h3>
+        <p>When something is down, an experienced person running the incident: getting it fixed, keeping everyone informed, and making sure it does not happen the same way twice.</p>
+        <ul>
+          <li>Incident command during an outage or breach</li>
+          <li>Blameless post-incident reviews</li>
+          <li>On-call, runbooks and an incident process people actually follow</li>
+        </ul>
+        <p class="aside">Our post-incident reviews are blameless. The one exception is <a href="https://mikesfault.com/?utm_source=darkplanet&amp;utm_medium=referral">mikesfault.com</a>, where the root cause is always Mike.</p>
       </div>
     </div>
   </div>
